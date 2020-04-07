@@ -134,7 +134,29 @@ public:
 				else
 					parent->right = cur->left;
 			}
+			else
+				root = cur->left;
+			delete cur;
+			cur = nullptr;
 		}
+		else
+		{
+			pNode next = cur->left;
+			pNode parent = cur;
+			while (next->right)
+			{
+				parent = next;
+				next = next->right;
+			}
+			cur->value = next->value;
+			if (parent->left == next)
+				parent->left = next->left;
+			else
+				parent->right = next->left;
+			delete next;
+			next = nullptr;
+		}
+		return true;
 	}
 	void InOrder(pNode root)
 	{
@@ -157,14 +179,21 @@ private:
 void Test()
 {
 	BsTree<int> bs;
+	cout << bs.insert(5) << endl;
+	cout << bs.insert(3) << endl;
 	cout << bs.insert(1) << endl;
-	cout << bs.insert(100) << endl;
-	cout << bs.insert(50) << endl;
-	cout << bs.insert(66) << endl;
-	cout << bs.insert(88) << endl;
-	cout << bs.insert(99) << endl;
-	cout << bs.insert(100) << endl;
-	cout << bs.insert(100) << endl;
+	cout << bs.insert(0) << endl;
+	cout << bs.insert(2) << endl;
+	cout << bs.insert(7) << endl;
+	cout << bs.insert(6) << endl;
+	cout << bs.insert(8) << endl;
+	cout << bs.insert(9) << endl;
+	bs.Test1();
+	bs.erase(0);
+	bs.Test1();
+	bs.erase(5);
+	bs.Test1();
+	bs.erase(9);
 	bs.Test1();
 }
 int main()
