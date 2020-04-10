@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<iostream>
+#include<assert.h>
 using namespace std;
 template<class T>
 struct AVLNode
@@ -12,10 +13,10 @@ struct AVLNode
 
 	AVLNode(const T &value = T())
 		:left(nullptr)
-		; right(nullptr)
-		; parent(nullptr)
-		; value(value)
-		; bf(0);
+		, right(nullptr)
+		, parent(nullptr)
+		, value(value)
+		, bf(0)
 	{
 
 	}
@@ -39,7 +40,7 @@ public:
 		if (_parent != root)
 		{
 			pNode gParent = _parent->parent;
-			if (gParent->left = _parent)
+			if (gParent->left == _parent)
 				gParent->left = subL;
 			else
 				gParent->right = subL;
@@ -82,7 +83,7 @@ public:
 		_parent->parent = subR;
 		_parent->bf =subR->bf= 0;
 	}
-	void insert(const T& _value)
+	bool insert(const T& _value)
 	{
 		if (root == nullptr)
 		{
@@ -104,9 +105,9 @@ public:
 		}
 		cur = new Node(_value);
 		if (_parent->value > _value)
-			parent->left = cur;
+			_parent->left = cur;
 		else
-			parent->right = cur;
+			_parent->right = cur;
 
 		cur->parent = _parent;
 
@@ -154,6 +155,64 @@ public:
 		}
 		return true;
 	}
+	void _show()
+	{
+		show(root);
+		cout << endl;
+	}
+	void show(pNode root)
+	{
+		if (root)
+		{
+			show(root->left);
+			cout << root->value << " ";
+			show(root->right);
+		}
+	}
+	int hight(pNode root)
+	{
+		if (root != nullptr)
+		{
+			int left = hight(root->left);
+			int right = hight(root->right);
+			return left > right ? left + 1 : right + 1;
+		}
+		return 0;
+	}
+	bool isAVLTree()
+	{
+		return _isAVLTree(root);
+	}
+	bool _isAVLTree(pNode _root)
+	{
+		if (_root == nullptr)
+			return true;
+		int left = hight(_root->left);
+		int right = hight(_root->right);
+		if (right - left != _root->bf)
+		{
+			cout << "节点" << root->value << "平衡因子异常" << endl;
+			return false;
+		}
+		return abs(_root->bf) < 2 && _isAVLTree(_root->left) && _isAVLTree(_root->right);
+	}
 private:
 	pNode root = nullptr;
 };
+
+void test()
+{
+	AVLTree<int>* avl = new AVLTree<int>();
+	int arr[] = { 16, 3, 7, 11, 9, 26,18, 14,15 };
+	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	{
+		avl->insert(arr[i]);
+	}
+	avl->_show();
+	cout << avl->isAVLTree() << endl;
+}
+int main()
+{
+	test();
+	return 0;
+}
