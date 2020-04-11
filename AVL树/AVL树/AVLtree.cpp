@@ -137,13 +137,41 @@ public:
 					RotateR(_parent);
 				else if (_parent->bf == -2 && cur->bf == 1)
 				{
+					pNode subL = _parent->left;
+					pNode subLR = subL->right;
+					int bf = subLR->bf;
 					LotateL(cur);
 					RotateR(_parent);
+					//:更新parent,subL的平衡因子
+					if (bf == 1)
+					{
+						_parent->bf = 0;
+						subL->bf = -1;
+					}
+					else if (bf == -1)
+					{
+						subL->bf = 0;
+						_parent->bf = 1;
+					}
 				}
 				else if (_parent->bf == 2 && cur->bf == -1)
 				{
+					pNode subR = _parent->right;
+					pNode subRL = subR->left;
+					int bf = subRL->bf;
+
 					RotateR(cur);
 					LotateL(_parent);
+					if (bf == 1)
+					{
+						subR->bf = 0;
+						_parent->bf = -1;
+					}
+					else if (bf == -1)
+					{
+						_parent->bf = 0;
+						subR->bf = -1;
+					}
 				}
 				break;
 
@@ -203,7 +231,7 @@ private:
 void test()
 {
 	AVLTree<int>* avl = new AVLTree<int>();
-	int arr[] = { 16, 3, 7, 11, 9, 26,18, 14,15 };
+	int arr[] = { 4,2,6,1,3,5,15,7,16,14 };
 	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
 	{
 		avl->insert(arr[i]);
