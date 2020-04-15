@@ -64,7 +64,6 @@ public:
 				cur = cur->right;
 		}
 		cur = new Node(_value);
-		if (_parent->)
 	
 	}
 private:
