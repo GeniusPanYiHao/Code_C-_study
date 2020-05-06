@@ -231,7 +231,7 @@ private:
 void test()
 {
 	AVLTree<int>* avl = new AVLTree<int>();
-	int arr[] = { 4,2,6,1,3,5,15,7,16,14 };
+	int arr[] = { 4,2,6,1,3,5,15,7,16 };
 	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
 	{
 		avl->insert(arr[i]);
