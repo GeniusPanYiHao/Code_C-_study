@@ -8,15 +8,17 @@ char a[101][100];
 int n;
 int fangfa2()
 {
-	for (int i = 0; i<n; i++)
-	if (strlen(a[i]) != strlen(a[i + 1]))
+	int i;
+	for (i = 0; i<n - 1; i++)
+	if (strlen(a[i])>strlen(a[i + 1]))
 		return 0;
 	return 1;
 }
 int fangfa1()
 {
-	for (int i = 0; i<n; i++)
-	if (a[i]>a[i + 1])
+	int i;
+	for (i = 0; i<n - 1; i++)
+	if (strcmp(a[i], a[i + 1])>0)
 		return 0;
 	return 1;
 }
