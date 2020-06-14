@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "二进制中最大连续1大小", "二进制中最大连续1大小\二进制中最大连续1大小.vcxproj", "{354FE9BF-973E-4082-B433-7AA718087A80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{354FE9BF-973E-4082-B433-7AA718087A80}.Debug|Win32.ActiveCfg = Debug|Win32
+		{354FE9BF-973E-4082-B433-7AA718087A80}.Debug|Win32.Build.0 = Debug|Win32
+		{354FE9BF-973E-4082-B433-7AA718087A80}.Release|Win32.ActiveCfg = Release|Win32
+		{354FE9BF-973E-4082-B433-7AA718087A80}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
