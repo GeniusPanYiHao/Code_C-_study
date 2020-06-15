@@ -1,27 +1,28 @@
-
 #include<iostream>
 using namespace std;
 
 int main()
 {
 	int n;
-	cin >> n;
-	int count = 0;
-	int sum = 0;
-	while (n)
+	while (cin >> n)
 	{
-		if (n & 1)
+		int count = 0;
+		int sum = 0;
+		while (n)
 		{
-			count++;
-			if (count > sum)
+			if (n & 1)
 			{
-				sum = count;
-			}
+				count++;
+				if (count > sum)
+				{
+					sum = count;
+				}
 
+			}
+			else
+				count = 0;
+			n >>= 1;
 		}
-		else
-			count = 0;
-		n >>= 1;
+		cout << sum << endl;
 	}
-	cout << sum << endl;
 }
