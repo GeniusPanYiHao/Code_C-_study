@@ -19,7 +19,7 @@ int main()
 	while (cin >> a)
 	{
 		b = a / 2;
-		for (i = b; i<a; i++)
+		for (i = b; i>0; i--)
 		{
 			if (isSushu(i) && isSushu(a - i))
 				break;
