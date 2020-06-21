@@ -116,52 +116,12 @@ int main()
 			}
 			if (a.size() == b.size())
 			{
-				if (a.size() == 1)
+				if (a[0] > b[0])
 				{
-					if (a[0] > b[0])
-					{
-						cout << str2 << endl;
-					}
-					else
-						cout << str3 << endl;
+					cout << str2 << endl;
 				}
-				if (a.size() == 2)
-				{
-					if (a[0] > b[0])
-					{
-						cout << str2 << endl;
-					}
-					else
-						cout << str3 << endl;
-				}
-
-				if (a.size() == 3)
-				{
-					if (a[0] > b[0])
-					{
-						cout << str2 << endl;
-					}
-					else
-						cout << str3 << endl;
-				}
-				if (a.size() == 4)
-				{
-					if (a[0] > b[0])
-					{
-						cout << str2 << endl;
-					}
-					else
-						cout << str3 << endl;
-				}
-				if (a.size() == 5)
-				{
-					if (a[0] > b[0])
-					{
-						cout << str2 << endl;
-					}
-					else
-						cout << str3 << endl;
-				}
+				else
+					cout << str3 << endl;
 			}
 			else if (a.size() == 4 || b.size() == 4)
 			{
