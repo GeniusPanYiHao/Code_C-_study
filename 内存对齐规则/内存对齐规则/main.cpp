@@ -34,10 +34,18 @@ public:
 	double d;
 	int a;
 };
+struct E
+{
+public:
+	char b;
+	struct D;
+	int a;
+};
 int main()
 {
 	cout << sizeof(A) << endl;
 	cout << sizeof(B)<< endl;
 	cout << sizeof(C) << endl;
 	cout << sizeof(D) << endl;
+	cout << sizeof(E) << endl;
 }
