@@ -48,17 +48,20 @@ void Insert(LNode *head, int i, int X)//:在第i个元素前插入X
 }
 void ReverseOrderList(LNode *head)
 {
-	LNode *prev,*Next;
-	prev= NULL;
-	Next=head->next;
-	while (Next!= NULL)
+	LNode *p = NULL;
+	LNode *h = head;
+	LNode *q = NULL;
+	while (h != NULL)
 	{
-		head->next = prev;
-		prev = head;
-		Next->next = head;
-		head = Next;
-		Next = head->next;
+		LNode* Next = h->next;
+		if (Next == NULL)
+			p = h;
+		h->next = q;
+		q = h;
+		h = Next;
 	}
+	return p;
+
 }
 void show(LNode *head)//链表的输出
 {
