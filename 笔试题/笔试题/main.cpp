@@ -1,9 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<iostream>
 #include<vector>
-using namespace std;
-#include<iostream>
-#include<vector>
+#include<algorithm>
 using namespace std;
 void input(int n, vector<int> a)
 {
@@ -22,16 +20,13 @@ void input(int n, vector<int> a)
 	{
 		if (a[i] == min)
 		{
-			if (a[i + 1] == a[i])
+			if (a[i] == a[i+1])
 			{
 				int c = i;
 				a[i + 1] = 2 * a[i + 1];
-				//for (int j = c; j < a.size()-1; j++)
-				//{
-				//	a[j] = a[j + 1];
-				//}
+				a.erase(a.begin()+c);
 				break;
-			};
+			}
 		}
 	}
 	int flag = 0;
