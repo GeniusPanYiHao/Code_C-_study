@@ -10,10 +10,40 @@ struct Test
 }*p;
 int main()
 {
-	printf("%p\n", p);
+	char str1[10]="cdvgvr";
+	/*char *str1="abcd";*/
+	char *str2 = "abcde";
+	/*strncpy(str1, str2, 3);*/
+	/*char *str3 = strstr(str1, str2);*/
+	memcpy(str1, str2, 2);
+	printf("%s", str1);
+	/*if (strcmp(str1, str2) < 0)
+		printf("str1 < str2");
+	if (strcmp(str1, str2) == 0)
+		printf("str1 = str2");
+	if (strcmp(str1, str2) > 0)
+		printf("str1 > str2");*/
+	//printf("%d\n", strlen(str1));
+	/*strcpy(str1, str2);*/
+	/*strcat(str1, str2);
+	printf("%s",str1);*/
+	/*if (str1 == str2)
+	{
+		printf("true");
+	}
+	else
+		printf("false");*/
+
+
+	/*char *a[] = { "work", "at", "abcdef" };
+	char** pa = a;
+	pa++;
+	printf("%s\n", *pa);
+	return 0;*/
+	/*printf("%p\n", p);
 	printf("%p\n", p + 0x1);
 	printf("%p\n", (unsigned long)p + 0x1);
-	printf("%p\n", (unsigned int*)p + 0x1);
+	printf("%p\n", (unsigned int*)p + 0x1);*/
 	/*int n = 10;
 	char* pc = (char*)&n;
 	int* pi = &n;
